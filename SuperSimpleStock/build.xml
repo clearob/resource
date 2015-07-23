@@ -1,0 +1,47 @@
+<project name="SuperSimpleStock" default="dist" basedir=".">
+    <description>
+        books shop
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src/simplestock"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+ 
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+	
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+  	<javac destdir="${build}" 
+  					fork="true" memoryinitialsize="256m" memorymaximumsize="256m"
+  					deprecation="false" optimize="false" failonerror="true">
+  				<src path="${src}"/>
+  				<!-- Include Commons Attributes generated Java sources -->
+  				
+
+  			</javac>
+  	
+  	
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution" >
+    <!-- Create the distribution directory -->
+  
+    <jar jarfile="${dist}/SuperSimpleStock.jar" basedir="${build}"/>
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>

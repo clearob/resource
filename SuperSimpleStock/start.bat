@@ -1,0 +1,1 @@
+java -cp "dist/SuperSimpleStock.jar" simplestock.mainapp.SimpleStockTrader
