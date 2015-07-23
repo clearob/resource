@@ -89,8 +89,7 @@ public class SimpleStockTrader
 
 		List<TradingOrder> trades;
 
-		try {
-
+		
 			for(Stock stockIterator : stocks) {
 
 				trades = map.get(stockIterator);
@@ -122,9 +121,7 @@ public class SimpleStockTrader
 			System.out.println("GBCE shares: "+stockCalculatorUtil.calculateGbceShares(stocks));
 
 
-		} catch (SimpleStockTradingException e) {
-			throw	new SimpleStockTradingException(e.getMessage());
-		}
+		
 	}
 }
 
